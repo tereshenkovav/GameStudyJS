@@ -1,0 +1,3 @@
+[submodule "GameStudyJS-core"]
+	path = GameStudyJS-core
+	url = git@github.com:tereshenkovav/GameStudyJS-core.git

@@ -8,7 +8,7 @@ QT       += core gui script
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-DESTDIR = ..\bin
+DESTDIR = ../bin
 
 TARGET = GameStudy
 TEMPLATE = app
@@ -24,49 +24,51 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+COREDIR = ../GameStudyJS-core
+
+INCLUDEPATH += $$COREDIR
+DEPENDPATH += $$COREDIR
 
 SOURCES += \
-    ../core/animation.cpp \
-    ../core/game.cpp \
-    ../core/line.cpp \
-    ../core/pcxtexloader.cpp \
-    ../core/qgamesystem.cpp \
-    ../core/rect.cpp \
-    ../core/sound.cpp \
-    ../core/sprite.cpp \
-    ../core/text.cpp \
+    $$COREDIR/animation.cpp \
+    $$COREDIR/game.cpp \
+    $$COREDIR/line.cpp \
+    $$COREDIR/pcxtexloader.cpp \
+    $$COREDIR/qgamesystem.cpp \
+    $$COREDIR/rect.cpp \
+    $$COREDIR/sound.cpp \
+    $$COREDIR/sprite.cpp \
+    $$COREDIR/text.cpp \
         main.cpp \
         mainwindow.cpp \
     qsfmlcanvas.cpp 
 
-INCLUDEPATH += ../core
-
 HEADERS += \
-    ../core/animation.h \
-    ../core/game.h \
-    ../core/line.h \
-    ../core/pcxtexloader.h \
-    ../core/qgamesystem.h \
-    ../core/rect.h \
-    ../core/sound.h \
-    ../core/sprite.h \
-    ../core/text.h \
-        mainwindow.h \
+    $$COREDIR/animation.h \
+    $$COREDIR/game.h \
+    $$COREDIR/line.h \
+    $$COREDIR/pcxtexloader.h \
+    $$COREDIR/qgamesystem.h \
+    $$COREDIR/rect.h \
+    $$COREDIR/sound.h \
+    $$COREDIR/sprite.h \
+    $$COREDIR/text.h \
+         mainwindow.h \
     qsfmlcanvas.h 
 
 FORMS += \
         mainwindow.ui
 
 win32 {
-  LIBS+=-L"..\SFML-2.5.1-mingw\lib"
+  LIBS+=-L"../SFML-2.5.1-mingw/lib"
 
   CONFIG(release, debug|release): LIBS += -lsfml-audio -lsfml-graphics -lsfml-main -lsfml-network -lsfml-window -lsfml-system
 
   CONFIG(debug, debug|release): LIBS += -lsfml-audio-d -lsfml-graphics-d -lsfml-main-d -lsfml-network-d -lsfml-window-d -lsfml-system-d
 
-  INCLUDEPATH+=..\SFML-2.5.1-mingw\include
+  INCLUDEPATH+=../SFML-2.5.1-mingw/include
 
-  DEPENDPATH+=..\SFML-2.5.1-mingw\include
+  DEPENDPATH+=../SFML-2.5.1-mingw/include
 }
 
 unix {
