@@ -1,1 +1,0 @@
-const SCENESCRIPT='scene2' ;
