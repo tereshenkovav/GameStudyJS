@@ -83,6 +83,8 @@ int main(int argc, char *argv[])
             delete game ;
             game = createGame(game->getNewScript(),extproc) ;
             if (!game->Init(args)) return 1 ;
+            // Убираем слишком большую дельту, вызванную инициализацией новой игры
+            lasttime = clock.getElapsedTime().asSeconds() ;
         }
 
         window.clear();
