@@ -71,6 +71,7 @@ int main(int argc, char *argv[])
 
         game->setMousePos(sf::Mouse::getPosition(window).x,sf::Mouse::getPosition(window).y) ;
 
+	if (window.hasFocus()) {
         if (!game->Frame(dt)) {
             window.close() ;
             break ;
@@ -85,6 +86,7 @@ int main(int argc, char *argv[])
             if (!game->Init(args)) return 1 ;
             // Убираем слишком большую дельту, вызванную инициализацией новой игры
             lasttime = clock.getElapsedTime().asSeconds() ;
+        }
         }
 
         window.clear();
